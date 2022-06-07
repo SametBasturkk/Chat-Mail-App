@@ -25,6 +25,9 @@ const buttonSend = (e) => {
             Title: Title,
             message: message,
         }),
+    }).then((res) => {
+        alert("Message sent. Please refresh before to implement webscoket");
+
     });
 }
 
@@ -39,7 +42,7 @@ fetch("https://pool.energy/apiv2/showmessage", {
     }).then(function (res) {
         Promise.resolve(res.json()).then(function (data) {
             for (var i = 0; i < data.length; i++) {
-                document.getElementById("messageTest").innerHTML += "<span class=Title> Title:</span> "+data[i].message_user +"<br>" +  data[i].title + "<br>";
+                document.getElementById("messageTest").innerHTML += "<span class=Title> Message:</span> "+data[i].message_user +"<br>" +  data[i].title + "<br>";
             }
         });
 
